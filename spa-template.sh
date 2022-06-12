@@ -15,6 +15,6 @@ cp -r ../package/. $cwd_my_var/$project_name
 npm install --save react @types/react react-dom @types/react-dom react-router-dom @types/react-router-dom react-device-detect react-scripts
 npm install --save-dev sass typescript
 
-# rm -rf cd ../package
+rm -rf ../package/ ../spa-template.sh ../.git
 
 npm run start
