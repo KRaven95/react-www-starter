@@ -1,0 +1,31 @@
+@use "./variables.scss" as *;
+
+@function calculate-width ($col-span) {
+  @return 100% / $col-span;
+};
+
+@function get-mobile() {
+  @return map-get($breakpoints, mobile);
+};
+
+@function get-smallTablet() {
+  @return map-get($breakpoints, smallTablet);
+};
+
+@function get-tablet() {
+  @return map-get($breakpoints, tablet);
+};
+
+@function get-bigTablet() {
+  @return map-get($breakpoints, bigTablet);
+};
+
+@function get-desktop() {
+  @return map-get($breakpoints, desktop);
+};
+
+@function get-bigDesktop() {
+  @return map-get($breakpoints, bigDesktop);
+};
+
+

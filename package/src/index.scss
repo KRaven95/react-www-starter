@@ -1,0 +1,84 @@
+@use "./Scss/variables.scss" as *;
+@use "./Scss/mixins.scss" as *;
+@use "./Scss/functions.scss" as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body, #root, section {
+  width: 100%;
+  height: max-content;
+}
+
+section {
+  position: relative;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.container-fluid {
+  width: 100%;
+}
+
+.container-xxl {
+  max-width: 1440px !important;
+  background-color: transparent;
+  height: 100%;
+  position: relative;
+}
+
+.container-xl {
+  max-width: 1100px !important;
+  background-color: transparent;
+  height: 100%;
+  position: relative;
+}
+
+.desktop-768 {
+  display: flex !important;
+  
+  @include mq(get-smallTablet()) {
+    display: none !important;
+  }
+}
+
+.mobile-768 {
+  display: none !important;
+  
+  @include mq(get-smallTablet()) {
+    display: block !important;
+  }
+}
+
+.desktop-block {
+  display: block !important;
+  @include mq(get-tablet()) {
+    display: none !important;
+  }
+}
+
+.mobile-block {
+  display: none !important;
+  @include mq(get-tablet()) {
+    display: block !important;
+  }
+}
+
+.desktop-flex {
+  display: flex !important;
+  @include mq(get-tablet()) {
+    display: none !important;
+  }
+}
+
+.mobile-flex {
+  display: none !important;
+  @include mq(get-tablet()) {
+    display: flex !important;
+  }
+}

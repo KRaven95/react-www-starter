@@ -1,0 +1,77 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-row($direction) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: $direction;
+}
+
+@mixin flex-column($v-direction, $h-direction: center) {
+  display: flex;
+  flex-direction: column;
+  align-items: $v-direction;
+  justify-content: $h-direction;
+}
+
+@mixin flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+} 
+
+@mixin text-scaffold($fs, $fw, $color, $lh, $ls) {
+  font-size: $fs !important;
+  font-weight: $fw !important;
+  color: $color !important;
+  line-height: $lh !important;
+  letter-spacing: $ls !important;
+}
+
+@mixin v-img($width) {
+  height: auto;
+  width: $width;
+}
+
+@mixin h-img($height) {
+  width: auto;
+  height: $height;
+}
+
+@mixin fit-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@mixin hero-img($url) {
+  background-image: url($url);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+@mixin submissiveBox {
+  width: max-content;
+  height: max-content;
+}
+
+@mixin fullBox {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin halfSubmissive {
+  height: max-content;
+  width: 100%;
+}
+
+@mixin mq($size) {
+  @media(max-width: $size) {
+    @content;
+  }
+}
