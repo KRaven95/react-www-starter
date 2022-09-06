@@ -1,6 +1,4 @@
 node_modules
-package-lock.json
-yarn.lock
 /.pnp
 .pnp.js
 
@@ -26,3 +24,5 @@ yarn-error.log*
 /.firebase
 
 .idea
+
+.vscode

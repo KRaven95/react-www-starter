@@ -1,9 +1,7 @@
 import React from "react";
-import Routing from "./Routes/Routing";
-import LandingPage from "./UI/Pages/LandingPage/LandingPage";
 
 const App = () => {
-  return <Routing />;
+  return <h1>Hello world</h1>;
 };
 
 export default App;
