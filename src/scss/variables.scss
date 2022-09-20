@@ -1,10 +1,66 @@
-//====================================
-$breakpoints: (
-  mobile: 375px,
-  smallTablet: 576px,
-  tablet: 768px,
-  bitTablet: 991px,
-  desktop: 1200px,
-  bigDesktop: 1400px
-)
-//===================================
+$screen-sizes: (
+  xs: 0px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+$size-dx: 8px;
+
+$size-1: $size-dx; 
+$size-2: $size-dx * 2; 
+$size-3: $size-dx * 3; 
+$size-4: $size-dx * 4; 
+$size-5: $size-dx * 5; 
+$size-6: $size-dx * 6; 
+$size-7: $size-dx * 7; 
+$size-8: $size-dx * 8; 
+$size-9: $size-dx * 9; 
+$size-10: $size-dx * 10; 
+
+$size-variants: (
+  1: $size-1,
+  2: $size-2,
+  3: $size-3,
+  4: $size-4,
+  5: $size-5,
+  6: $size-6,
+  7: $size-7,
+  8: $size-8,
+  9: $size-9,
+  10: $size-10,
+  auto: auto,
+  inh: inherit,
+  un: unset,
+  init: initial,
+);
+
+$order-variants: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20;
+
+$percentage-variants: (
+  100: 100%,
+  90: 90%,
+  80: 80%,
+  70: 70%,
+  60: 60%,
+  50: 50%,
+  40: 40%,
+  30: 30%,
+  20: 20%,
+  10: 10%,
+  0: 0%,
+  auto: auto,
+  max: max-content,
+  min: min-content,
+  inh: inherit,
+  un: unset,
+  init: initial
+);
+
+$display-variants: (
+  b: block,
+  f: flex,
+  n: none
+);
