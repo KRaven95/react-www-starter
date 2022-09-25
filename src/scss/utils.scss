@@ -1,24 +1,59 @@
 @use "./variables.scss" as *;
 
-@each $screen, $size-value in $screen-sizes {
-  @each $display-key, $display-value in $display-variants {
+//handled styles:
+// display: eg. n, sm-b
+// width: eg. w-30, w-md-100
+// max-width eg. maw-20, maw-lg-10
+// min-width eg. miw-10, miw-xl-100
+// height eg. h-4, 
+// min-height, mih
+// max-height, mah
+// padding, p, 1-10, 1
+// padding-top, pt, 1-10, 1
+// padding-right, pr, 1-10, 1
+// padding-bottom, pb, 1-10, 1
+// padding-left, pl, 1-10, 1
+// margin, m , 1-10, 1
+// margin-top, mt, 1-10, 1
+// margin-right, mr, 1-10, 1
+// margin-bottom, mb, 1-10, 1
+// margin-left, ml, 1-10, 1 
+// opacity, op 0-100, 10
+// order, or 1-20, 1
+// font-size, fs 10-100, 1
+
+@each $screen,
+$size-value in $screen-sizes {
+
+  @each $display-key,
+  $display-value in $display-variants {
     @if $screen =="xs" {
       .#{$display-key} {
         display: $display-value;
       }
     }
+
     @else {
       @media (min-width: $size-value) {
         .#{$screen}-#{$display-key} {
           display: $display-value;
         }
-      };
-    }
-  };
-};
+      }
 
-@each $screen, $size-value in $screen-sizes {
-  @each $percentage-key, $percentage-value in $percentage-variants {
+      ;
+    }
+  }
+
+  ;
+}
+
+;
+
+@each $screen,
+$size-value in $screen-sizes {
+
+  @each $percentage-key,
+  $percentage-value in $percentage-variants {
     @if $screen =="xs" {
       .w-#{$percentage-key} {
         width: $percentage-value;
@@ -44,6 +79,7 @@
         max-height: $percentage-value;
       }
     }
+
     @else {
       @media(min-width: $size-value) {
         .w-#{$screen}-#{$percentage-key} {
@@ -74,8 +110,11 @@
   }
 }
 
-@each $screen, $screen-value in $screen-sizes {
-  @each $size-key, $size-value in $size-variants {
+@each $screen,
+$screen-value in $screen-sizes {
+
+  @each $size-key,
+  $size-value in $size-variants {
     @if $screen =="xs" {
       .p-#{$size-key} {
         padding: $size-value;
@@ -117,6 +156,7 @@
         margin-right: $size-value;
       }
     }
+
     @else {
       @media(min-width: $screen-value) {
         .p-#{$screen}-#{$size-key} {
@@ -163,13 +203,17 @@
   }
 }
 
-@each $screen, $screen-value in $screen-sizes {
-  @each $percentage-key, $percentage-value in $percentage-variants {
+@each $screen,
+$screen-value in $screen-sizes {
+
+  @each $percentage-key,
+  $percentage-value in $percentage-variants {
     @if $screen =="xs" {
       .op-#{$percentage-key} {
         opacity: calc($percentage-key / 100);
       }
     }
+
     @else {
       @media(min-width: $screen-value) {
         .op-#{$screen}-#{$percentage-key} {
@@ -180,17 +224,49 @@
   }
 }
 
-@each $screen, $screen-value in $screen-sizes {
+@each $screen,
+$screen-value in $screen-sizes {
   @each $order-value in $order-variants {
     @if $screen =="xs" {
       .or-#{$order-value} {
         order: $order-value;
       }
     }
+
     @else {
       @media(min-width: $screen-value) {
         .or-#{$screen}-#{$order-value} {
           order: $order-value;
+        }
+      }
+    }
+  }
+}
+
+$start: 10;
+$end: 100;
+
+$font-sizes: "";
+
+@for $i from $start +1 through $end {
+  $font-sizes: append($font-sizes, $i, comma);
+  $font-sizes: set-nth($font-sizes, 1, $start);
+}
+
+
+@each $screen,
+$screen-value in $screen-sizes {
+  @each $font-size in $font-sizes {
+    @if $screen =="xs" {
+      .fs-#{$font-size} {
+        font-size: #{$font-size}px;
+      }
+    }
+
+    @else {
+      @media(min-width: $screen-value) {
+        .fs-#{$screen}-#{$font-size} {
+          font-size: #{$font-size}px;
         }
       }
     }
