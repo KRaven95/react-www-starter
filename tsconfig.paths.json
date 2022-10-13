@@ -1,0 +1,64 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@contexts/*": [
+        "./src/contexts/*"
+      ],
+      "@data/*": [
+        "./src/data/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@routes/*": [
+        "./src/routing/*"
+      ],
+      "@scss/*": [
+        "./src/scss/*"
+      ],
+      "@services/*": [
+        "./src/services/*"
+      ],
+      "@sharedInterfaces/*": [
+        "./src/shared/interfaces/*"
+      ],
+      "@sharedEnums/*": [
+        "./src/shared/enums/*"
+      ],
+      "@sharedTypes/*": [
+        "./src/shared/types/*"
+      ],
+      "@atoms/*": [
+        "./src/ui/components/atoms/*"
+      ],
+      "@molecules/*": [
+        "./src/ui/components/molecules/*"
+      ],
+      "@organisms/*": [
+        "./src/ui/components/organisms/*"
+      ],
+      "@layouts/*": [
+        "./src/ui/layouts/*"
+      ],
+      "@pages/*": [
+        "./src/ui/pages/*"
+      ],
+      "@sections/*": [
+        "./src/ui/sections/*"
+      ],
+      "@images/*": [
+        "./public/images/*"
+      ],
+      "@downloads/*": [
+        "./public/downloads/*"
+      ],
+      "@assets/*": [
+        "./public/assets/*"
+      ],
+      "@pdfs/*": [
+        "./public/pdfs/*"
+      ]
+    }
+  }
+}
