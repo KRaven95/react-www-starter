@@ -2,17 +2,26 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@config/*": [
+        "./src/config/*"
+      ],
       "@contexts/*": [
         "./src/contexts/*"
       ],
       "@data/*": [
         "./src/data/*"
       ],
+      "@features/*": [
+        "./src/features/*"
+      ],
       "@hooks/*": [
         "./src/hooks/*"
       ],
-      "@routes/*": [
-        "./src/routing/*"
+      "@pages/*": [
+        "./src/pages/*"
       ],
       "@scss/*": [
         "./src/scss/*"
@@ -20,32 +29,8 @@
       "@services/*": [
         "./src/services/*"
       ],
-      "@sharedInterfaces/*": [
-        "./src/shared/interfaces/*"
-      ],
-      "@sharedEnums/*": [
-        "./src/shared/enums/*"
-      ],
-      "@sharedTypes/*": [
-        "./src/shared/types/*"
-      ],
-      "@atoms/*": [
-        "./src/ui/components/atoms/*"
-      ],
-      "@molecules/*": [
-        "./src/ui/components/molecules/*"
-      ],
-      "@organisms/*": [
-        "./src/ui/components/organisms/*"
-      ],
-      "@layouts/*": [
-        "./src/ui/layouts/*"
-      ],
-      "@pages/*": [
-        "./src/ui/pages/*"
-      ],
-      "@sections/*": [
-        "./src/ui/sections/*"
+      "@tests/*": [
+        "./src/tests/*"
       ],
       "@images/*": [
         "./public/images/*"
