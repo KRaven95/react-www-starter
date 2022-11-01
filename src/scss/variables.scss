@@ -64,3 +64,11 @@ $display-variants: (
   f: flex,
   n: none
 );
+
+$start: 10;
+$end: 100;
+$font-sizes: "";
+@for $i from $start +1 through $end {
+  $font-sizes: append($font-sizes, $i, comma);
+  $font-sizes: set-nth($font-sizes, 1, $start);
+}

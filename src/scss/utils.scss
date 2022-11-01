@@ -243,17 +243,6 @@ $screen-value in $screen-sizes {
   }
 }
 
-$start: 10;
-$end: 100;
-
-$font-sizes: "";
-
-@for $i from $start +1 through $end {
-  $font-sizes: append($font-sizes, $i, comma);
-  $font-sizes: set-nth($font-sizes, 1, $start);
-}
-
-
 @each $screen,
 $screen-value in $screen-sizes {
   @each $font-size in $font-sizes {
