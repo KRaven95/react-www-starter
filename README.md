@@ -1,15 +1,15 @@
 README
 
-# Install dependencies
+### Install dependencies
 
 _yarn_
 
-# Run project
+### Run project
 
-_yarn start:dev_ - for dev version
+_yarn start:dev_ - for dev version  
 _yarn start:prod_ - for prod version
 
-# Build project
+### Build project
 
-_yarn build:dev_ - for dev version
+_yarn build:dev_ - for dev version  
 _ran build:prod_ - for prod version
