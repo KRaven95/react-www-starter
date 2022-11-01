@@ -5,8 +5,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
+    "start:dev": "REACT_APP_STAGE=dev craco start",
+    "start:prod": "REACT_APP_STAGE=prod craco start",
+    "build:dev": "REACT_APP_STAGE=dev craco build",
+    "build:prod": "REACT_APP_STAGE=prod craco build",
     "test": "craco test",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
