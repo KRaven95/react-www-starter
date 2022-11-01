@@ -39,15 +39,9 @@ $size-value in $screen-sizes {
           display: $display-value;
         }
       }
-
-      ;
     }
   }
-
-  ;
 }
-
-;
 
 @each $screen,
 $size-value in $screen-sizes {

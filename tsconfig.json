@@ -4,7 +4,7 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext",
+      "esnext"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -19,30 +19,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
+    "baseUrl": "."
   },
   "include": [
     "src"
   ],
-  
+  "extends": "./tsconfig.paths.json"
 }
-
-// "baseUrl": ".",
-//   "paths": {
-//     "@assets/*": ["./public/assets/*"],
-//     "@images/*": ["./public/images/*"],
-//     "@contexts/*": ["./src/images/*"],
-//     "@data/*": ["./src/data/*"],
-//     "@hooks/*": ["./src/hooks/*"],
-//     "@scss/*": ["./src/scss/*"],
-//     "@services/*": ["./src/services/*"],
-//     "@shared/*": ["./src/shared/*"],
-//     "@tests/*": ["./src/tests/*"],
-//     "@atoms/*": ["./src/ui/components/atoms/*"],
-//     "@molecules/*": ["./src/ui/components/molecules/*"],
-//     "@organisms/*": ["./src/ui/components/organisms/*"],
-//     "@layouts/*": ["./src/ui/layouts/*"],
-//     "@pages/*": ["./src/ui/pages/*"],
-//     "@sections/*": ["./src/ui/sections/*"],
-//     "@constants/*": ["./src/constants/*"],
-//   }
