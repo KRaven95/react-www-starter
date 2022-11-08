@@ -30,11 +30,7 @@ $size-variants: (
   7: $size-7,
   8: $size-8,
   9: $size-9,
-  10: $size-10,
-  auto: auto,
-  inh: inherit,
-  un: unset,
-  init: initial,
+  10: $size-10
 );
 
 $order-variants: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20;
@@ -50,13 +46,7 @@ $percentage-variants: (
   30: 30%,
   20: 20%,
   10: 10%,
-  0: 0%,
-  auto: auto,
-  max: max-content,
-  min: min-content,
-  inh: inherit,
-  un: unset,
-  init: initial
+  0: 0%
 );
 
 $display-variants: (
@@ -64,13 +54,3 @@ $display-variants: (
   f: flex,
   n: none
 );
-
-$start: 10;
-$end: 100;
-
-$font-sizes: "";
-
-@for $i from $start +1 through $end {
-  $font-sizes: append($font-sizes, $i, comma);
-  $font-sizes: set-nth($font-sizes, 1, $start);
-}
