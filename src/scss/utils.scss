@@ -1,3 +1,5 @@
+@use "./variables.scss" as *;
+
 .b {
   display: block
 }
@@ -4846,4 +4848,24 @@
   .or-xxl-20 {
     order: 20
   }
+}
+
+.col {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.light {
+  font-weight: $light;
+}
+
+.regular {
+  font-weight: $regular;
+}
+
+.bold {
+  font-weight: $bold;
 }
