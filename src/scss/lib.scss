@@ -1,4 +1,8 @@
-hr, a, button, div, span {
+@use "./variables.scss" as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+hr, a, button, div, span, label {
   margin: 0px;
   margin-top: 0px;
   margin-left: 0px;
@@ -11,10 +15,6 @@ hr, a, button, div, span {
   padding-right: 0px;
 }
 
-html {
-  font-size: 16px;
-}
-
 h1 {
   font-size: 3rem;
 }
@@ -24,7 +24,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: 1.70rem;
 }
 
 h4 {
@@ -50,6 +50,7 @@ h6 {
 .subheader {
   font-size: 1rem;
   opacity: 0.6;
+  font-weight: $bold;
 }
 
 button {

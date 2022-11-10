@@ -4869,3 +4869,43 @@
 .bold {
   font-weight: $bold;
 }
+
+.success-color {
+  color: $success;
+}
+.success-bg {
+  background-color: $success;
+}
+.success-border {
+  border-color: $success !important;
+}
+
+.danger-color {
+  color: $danger;
+}
+.danger-bg {
+  background-color: $danger;
+}
+.danger-border {
+  border-color: $danger !important;
+}
+
+.warning-color {
+  color: $warning;
+}
+.warning-bg {
+  background-color: $warning;
+}
+.warning-border {
+  border-color: $warning !important;
+}
+
+.info-color {
+  color: $info;
+}
+.info-bg {
+  background-color: $info;
+}
+.info-border {
+  border-color: $info !important;
+}
