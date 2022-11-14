@@ -3,6 +3,7 @@ import Layout from "@components/layoutElements/Layout/Layout";
 import Drawer from "@components/overlay/Drawer/Drawer";
 import Backdrop from "@components/ux/Backdrop/Backdrop";
 import Motion from "@components/ux/Motion/Motion";
+import Portal from "@components/arrangement/Portal/Portal";
 
 const App = () => {
   const [drawerOpened, setDrawerOpened] = React.useState(false);
@@ -16,15 +17,17 @@ const App = () => {
   return (
     <Layout variant={"sidebar-navbar-content"}>
       <button onClick={openDrawer}>Open drawer</button>
-      <Backdrop open={drawerOpened} onClick={setWrongAction}>
-        <Motion appear={drawerOpened} duration={1}>
-          <Motion slide={{ active: drawerOpened, direction: "left" }} duration={1}>
-            <Motion shake={isWrongAction} duration={2} onAnimationEnd={resetWrongAction}>
-              <Drawer closeFunction={closeDrawer} />
+      <Portal wrapperId="modals">
+        <Backdrop open={drawerOpened} onClick={setWrongAction}>
+          <Motion appear={drawerOpened} duration={1}>
+            <Motion slide={{ active: drawerOpened, direction: "left" }} duration={1}>
+              <Motion shake={isWrongAction} duration={2} onAnimationEnd={resetWrongAction}>
+                <Drawer closeFunction={closeDrawer} />
+              </Motion>
             </Motion>
           </Motion>
-        </Motion>
-      </Backdrop>
+        </Backdrop>
+      </Portal>
     </Layout>
   );
 };

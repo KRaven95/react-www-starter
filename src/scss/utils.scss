@@ -4909,3 +4909,10 @@
 .info-border {
   border-color: $info !important;
 }
+
+.overlay-alert { z-index: 600;}
+.overlay-notification { z-index: 500;}
+.overlay-message { z-index: 400;}
+.overlay-modal { z-index: 300;}
+.overlay-dialog { z-index: 200;}
+.overlay-drawer { z-index: 100;}
