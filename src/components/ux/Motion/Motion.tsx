@@ -3,79 +3,72 @@ import React from "react";
 import "./Motion.scss";
 
 export type DurationVariants = 0 | 1 | 2 | 3 | 4 | 5;
+export type SlideDirections = "left" | "right" | "top" | "bottom";
 
 export interface AnimationProps {
-  spin?: {
-    duration: DurationVariants;
+  spin?: boolean;
+  shake?: boolean;
+  appear?: boolean;
+  slide?: {
+    direction: SlideDirections;
     active: boolean;
-    delay?: number;
   };
-  shake?: {
-    duration: DurationVariants;
-    active: boolean;
-    delay?: number;
-  };
-  appear?: {
-    duration: DurationVariants;
-    active: boolean;
-    delay?: number;
-  };
+  duration: DurationVariants;
+  onAnimationEnd?: () => void;
   onClick?(): void;
 }
 
-const Motion = ({ children, spin, shake, appear, onClick }: IChildren & AnimationProps) => {
-  const motionRef = React.useRef(null as any);
-  const toggleMotion = (): void => {
-    if (!motionRef.current) return;
+const speedTimes = {
+  speed0: 150,
+  speed1: 300,
+  speed2: 600,
+  speed3: 1000,
+  speed4: 1500,
+  speed5: 3000
+};
 
-    motionRef.current.classList.toggle("paused");
-  };
+const Motion = ({
+  children,
+  spin,
+  shake,
+  appear,
+  slide,
+  duration,
+  onAnimationEnd = () => {}
+}: IChildren & AnimationProps) => {
+  const motionRef = React.useRef(null as any);
 
   const buildAnimation = (): string => {
     let animation = "";
     if (spin) {
-      animation += "spin";
-      if (spin.active) {
-        animation += `-${spin.duration}`;
-      }
+      animation += `spin-${duration}`;
     }
     if (shake) {
-      animation += " shake";
-      if (shake.active) {
-        animation += `-${shake.duration}`;
-      }
+      animation += `shake-${duration}`;
     }
 
     if (appear) {
-      if (appear.active) {
-        animation += " appear";
-        if (appear.delay) {
-          animation += `-${appear.duration}`;
-        }
+      animation += `appear-${duration}`;
+    }
+
+    if (slide?.active) {
+      animation += "slide";
+      if (slide?.direction === "left") {
+        animation += ` slide-left slide-left-${duration}`;
       }
     }
 
-    console.log(animation);
     return animation;
   };
 
-  const getDelay = () => {
-    if (appear) {
-      if (appear.delay) {
-        return `${appear.delay}s`;
-      }
-      return "unset";
-    }
-    return "unset";
-  };
+  React.useEffect(() => {
+    setTimeout(async () => {
+      onAnimationEnd();
+    }, speedTimes[`speed${duration}`]);
+  }, [spin, shake, appear, slide, duration, onAnimationEnd]);
 
   return (
-    <div
-      className={`${buildAnimation()} motion`}
-      // onClick={toggleMotion}
-      ref={motionRef}
-      style={{ animationDelay: getDelay() }}
-    >
+    <div className={`${buildAnimation()} motion`} ref={motionRef}>
       {children}
     </div>
   );
