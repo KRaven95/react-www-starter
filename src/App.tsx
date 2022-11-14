@@ -17,17 +17,19 @@ const App = () => {
   return (
     <Layout variant={"sidebar-navbar-content"}>
       <button onClick={openDrawer}>Open drawer</button>
-      <Portal wrapperId="modals">
-        <Backdrop open={drawerOpened} onClick={setWrongAction}>
-          <Motion appear={drawerOpened} duration={1}>
-            <Motion slide={{ active: drawerOpened, direction: "left" }} duration={1}>
-              <Motion shake={isWrongAction} duration={2} onAnimationEnd={resetWrongAction}>
-                <Drawer closeFunction={closeDrawer} />
+      {drawerOpened && (
+        <Portal wrapperId="overlay-modal">
+          <Backdrop open={drawerOpened} onClick={setWrongAction}>
+            <Motion appear={drawerOpened} duration={1}>
+              <Motion slide={{ active: drawerOpened, direction: "left" }} duration={1}>
+                <Motion shake={isWrongAction} duration={2} onAnimationEnd={resetWrongAction}>
+                  <Drawer closeFunction={closeDrawer} />
+                </Motion>
               </Motion>
             </Motion>
-          </Motion>
-        </Backdrop>
-      </Portal>
+          </Backdrop>
+        </Portal>
+      )}
     </Layout>
   );
 };
