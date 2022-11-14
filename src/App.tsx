@@ -4,6 +4,7 @@ import Drawer from "@components/overlay/Drawer/Drawer";
 import Backdrop from "@components/ux/Backdrop/Backdrop";
 import Motion from "@components/ux/Motion/Motion";
 import Portal from "@components/arrangement/Portal/Portal";
+import { randomUUID } from "@services/utils/randomUUID";
 
 const App = () => {
   const [drawerOpened, setDrawerOpened] = React.useState(false);
@@ -13,6 +14,8 @@ const App = () => {
   const [isWrongAction, setIsWrongAction] = React.useState(false);
   const setWrongAction = () => setIsWrongAction(true);
   const resetWrongAction = () => setIsWrongAction(false);
+
+  console.log(randomUUID());
 
   return (
     <Layout variant={"sidebar-navbar-content"}>
