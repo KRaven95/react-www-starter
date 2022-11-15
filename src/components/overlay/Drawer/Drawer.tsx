@@ -1,17 +1,9 @@
+import { IChildren } from "@components/interfaces/IChildren";
 import React from "react";
 import "./Drawer.scss";
 
-interface IDrawerProps {
-  closeFunction?: () => void;
-}
-
-const Drawer = ({ closeFunction }: IDrawerProps) => {
-  return (
-    <div className="drawer">
-      <h3>Drawer</h3>
-      <button onClick={closeFunction}>Close</button>
-    </div>
-  );
+const Drawer = ({ children }: IChildren) => {
+  return <div className="drawer">{children}</div>;
 };
 
 export default Drawer;

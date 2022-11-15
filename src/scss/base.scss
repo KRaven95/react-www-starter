@@ -22,6 +22,11 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
+body {
+  position: relative;
+}
+
+
 html,
 body,
 #root,
@@ -48,4 +53,32 @@ a {
 button {
   border: none;
   background-color: transparent;
+}
+
+#overlay {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  left: 0px;
+  top: 0px;
+  z-index: 1000;
+
+  .alert {
+    z-index: 6001;
+  }
+  .notification {
+    z-index: 5001;
+  }
+  .message {
+    z-index: 4001;
+  }
+  .modal {
+    z-index: 3001;
+  }
+  .dialog {
+    z-index: 2001;
+  }
+  .drawer {
+    z-index: 1001;
+  }
 }

@@ -52,10 +52,7 @@ const Motion = ({
     }
 
     if (slide?.active) {
-      animation += "slide";
-      if (slide?.direction === "left") {
-        animation += ` slide-left slide-left-${duration}`;
-      }
+      animation += `slide slide-${slide.direction} slide-${slide.direction}-${duration}`;
     }
 
     return animation;
