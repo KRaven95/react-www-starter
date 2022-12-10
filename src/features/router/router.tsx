@@ -1,3 +1,3 @@
-export const Router = () => {
+export const Routing = () => {
   return <></>;
 };

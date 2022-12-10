@@ -1,5 +1,5 @@
-$primary: #5757f0;
 $white: #fafafa;
+$primary: #5757f0;
 $black: #1d1d1d;
 
 $success: #22b814;
@@ -13,21 +13,21 @@ $screen-sizes: (
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1400px,
+  xxl: 1400px
 );
 
 $size-dx: 8px;
 
-$size-1: $size-dx; 
-$size-2: $size-dx * 2; 
-$size-3: $size-dx * 3; 
-$size-4: $size-dx * 4; 
-$size-5: $size-dx * 5; 
-$size-6: $size-dx * 6; 
-$size-7: $size-dx * 7; 
-$size-8: $size-dx * 8; 
-$size-9: $size-dx * 9; 
-$size-10: $size-dx * 10; 
+$size-1: $size-dx;
+$size-2: $size-dx * 2;
+$size-3: $size-dx * 3;
+$size-4: $size-dx * 4;
+$size-5: $size-dx * 5;
+$size-6: $size-dx * 6;
+$size-7: $size-dx * 7;
+$size-8: $size-dx * 8;
+$size-9: $size-dx * 9;
+$size-10: $size-dx * 10;
 
 $size-variants: (
   1: $size-1,
@@ -67,3 +67,18 @@ $display-variants: (
 $light: 300;
 $regular: 400;
 $bold: 700;
+
+$grid-values: (
+  1: calc((1 / 12) * 100%),
+  2: calc((2 / 12) * 100%),
+  3: calc((3 / 12) * 100%),
+  4: calc((4 / 12) * 100%),
+  5: calc((5 / 12) * 100%),
+  6: calc((6 / 12) * 100%),
+  7: calc((7 / 12) * 100%),
+  8: calc((8 / 12) * 100%),
+  9: calc((9 / 12) * 100%),
+  10: calc((10 / 12) * 100%),
+  11: calc((10 / 12) * 100%),
+  12: calc((12 / 12) * 100%)
+);

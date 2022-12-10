@@ -6,11 +6,6 @@ export interface IStack {
   rowGap?: number;
   justifyContent?: "flex-start" | "center" | "flex-end" | "space-around" | "space-between" | "space-evenly";
   alignItems?: "flex-start" | "center" | "flex-end";
-  p?: number;
-  pl?: number;
-  pr?: number;
-  pt?: number;
-  pb?: number;
   className?: string;
 }
 
@@ -19,25 +14,15 @@ const Stack = ({
   children,
   justifyContent = "flex-start",
   alignItems = "flex-start",
-  p,
-  pt,
-  pb,
-  pl,
-  pr,
-  className
+  className = ""
 }: IStack & IChildren) => {
   return (
     <div
-      className={`stack ${className}`}
+      className={`stack${className ? ` ${className}` : ""}`}
       style={{
         rowGap: `${rowGap}px`,
         justifyContent,
-        alignItems,
-        padding: p,
-        paddingLeft: pl,
-        paddingRight: pr,
-        paddingTop: pt,
-        paddingBottom: pb
+        alignItems
       }}
     >
       {children}
