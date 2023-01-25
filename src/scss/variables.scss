@@ -1,20 +1,25 @@
-$white: #fafafa;
-$primary: #5757f0;
-$black: #1d1d1d;
-
-$success: #22b814;
-$danger: #ff1818;
-$warning: #ffdf00;
-$info: #18afff;
-
-$screen-sizes: (
-  xs: 0px,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px
+//COLORS
+// Default theme
+$theme-map-light: (
+  --white: #000,
+  --black: #fff
 );
+
+// Override the default light theme
+$theme-map-dark: (
+  --white: #fff,
+  --black: #000
+);
+//COLORS
+
+//BREAKPOINTS
+$xs: 0px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+//BREAKPOINTS
 
 $size-dx: 8px;
 

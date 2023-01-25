@@ -1,26 +1,40 @@
 import React from "react";
-import { IChildren } from "@components/interfaces/IChildren";
 import "./Group.scss";
+
+type JustifyContent = "flex-start" | "center" | "flex-end" | "space-around" | "space-between" | "space-evenly";
+type AlignItems = "flex-start" | "center" | "flex-end";
 
 export interface IGroup {
   colGap?: number;
-  justifyContent?: "flex-start" | "center" | "flex-end" | "space-around" | "space-between" | "space-evenly";
-  alignItems?: "flex-start" | "center" | "flex-end";
+  rowGap?: number;
+  gap?: number;
+  grid?: false;
+  fullSize?: boolean;
+  justifyContent?: JustifyContent;
+  alignItems?: AlignItems;
   className?: string;
+  children: React.ReactNode;
 }
 
 const Group = ({
+  rowGap = 0,
   colGap = 0,
+  gap = 0,
+  grid = false,
+  fullSize = false,
   children,
   justifyContent = "flex-start",
   alignItems = "center",
   className = ""
-}: IGroup & IChildren) => {
+}: IGroup) => {
+  const classes = `group${className ? ` ${className}` : ""}${fullSize ? " full-size" : ""}${grid ? " grid" : ""}`;
   return (
     <div
-      className={`group${className ? ` ${className}` : ""}`}
+      className={classes}
       style={{
         columnGap: `${colGap}px`,
+        rowGap: `${rowGap}px`,
+        gap: `${gap}px`,
         justifyContent,
         alignItems
       }}

@@ -43,6 +43,9 @@
       ],
       "@pdfs/*": [
         "./public/pdfs/*"
+      ],
+      "@sharedComponents/*": [
+        "./src/pages/shared-components/*"
       ]
     }
   }

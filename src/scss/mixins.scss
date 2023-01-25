@@ -1,3 +1,5 @@
+@use "./variables.scss" as *;
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -22,7 +24,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-} 
+}
 
 @mixin ellipsis-after-lines($lines: 1) {
   display: -webkit-box;
@@ -62,7 +64,20 @@
 }
 
 @mixin mq($size) {
-  @media(max-width: $size) {
+  @media (max-width: $size) {
     @content;
   }
+}
+
+@mixin spread-map($map: ()) {
+  @each $key, $value in $map {
+    #{$key}: $value;
+  }
+}
+
+@function theme-var($key) {
+  @if not map-has-key($theme-map-light, $key) {
+    @error "key: '#{$key}', is not a key in map: #{$theme-map-light}";
+  }
+  @return var($key);
 }

@@ -3,7 +3,7 @@ import React from "react";
 import "./Content.scss";
 
 const Content = ({ children }: IChildren) => {
-  return <div className="content">{children}</div>;
+  return <main className="content">{children}</main>;
 };
 
 export default Content;

@@ -7,14 +7,14 @@
   input {
     font-size: 1em;
     font-weight: $light;
-    color: $black;
+    color: theme-var(--black);
     padding: 0.6em 0.75em;
     letter-spacing: 0.03em;
     border-radius: 0.25em;
-    border: 1px solid lighten($black, 60%);
+    border: 1px solid lighten(theme-var(--black), 60%);
     background-color: transparent;
     width: 100%;
-  
+
     &:focus {
       border-color: $primary;
       outline: none;
@@ -24,7 +24,6 @@
       font-weight: $light;
     }
   }
-
 
   .label {
     font-size: 0.9375em;

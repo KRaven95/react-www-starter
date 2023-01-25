@@ -3,4 +3,11 @@
 .group {
   display: flex;
   flex-direction: row;
+  width: max-content;
+  height: max-content;
+
+  &.full-size {
+    height: 100%;
+    width: 100%;
+  }
 }

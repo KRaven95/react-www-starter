@@ -21,9 +21,9 @@ const Layout = ({ variant, Navbar, Sidebar, Footer, children }: LayoutProps) => 
     if (variant === "navbar-content-footer") {
       return (
         <div className="layout navbar-content-footer">
-          <div className="navbar-part fixed">{Navbar && <Navbar />}</div>
-          <div className="content-part">{children}</div>
-          <div className="footer-part">{Footer && <Footer />}</div>
+          <header className="navbar-part fixed">{Navbar && <Navbar />}</header>
+          <main className="content-part">{children}</main>
+          <footer className="footer-part">{Footer && <Footer />}</footer>
         </div>
       );
     }
@@ -31,9 +31,9 @@ const Layout = ({ variant, Navbar, Sidebar, Footer, children }: LayoutProps) => 
     if (variant === "navbar-sidebar-content") {
       return (
         <div className="layout navbar-sidebar-content">
-          <div className="navbar-part">{Navbar && <Navbar />}</div>
+          <header className="navbar-part">{Navbar && <Navbar />}</header>
           <div className="bottom-part f">
-            <div className="sidebar-part">{Sidebar && <Sidebar />}</div>
+            <aside className="sidebar-part">{Sidebar && <Sidebar />}</aside>
             <div className="content-part">
               <Content>{children}</Content>
             </div>
@@ -45,9 +45,9 @@ const Layout = ({ variant, Navbar, Sidebar, Footer, children }: LayoutProps) => 
     if (variant === "sidebar-navbar-content") {
       return (
         <div className="layout sidebar-navbar-content">
-          <div className="sidebar-part">{Sidebar && <Sidebar />}</div>
+          <aside className="sidebar-part">{Sidebar && <Sidebar />}</aside>
           <div className="right-part">
-            <div className="navbar-part">{Navbar && <Navbar />}</div>
+            <header className="navbar-part">{Navbar && <Navbar />}</header>
             <div className="content-part">
               <Content>{children}</Content>
             </div>
