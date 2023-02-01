@@ -9,11 +9,9 @@
     display: block;
 
     .navbar-part {
-      position: fixed;
-      top: 0px;
-      left: 0px;
+      position: relative;
       width: 100%;
-      height: max-content;
+      height: 48px;
     }
 
     .content-part {
@@ -76,9 +74,5 @@
     .content-part {
       flex: 1;
     }
-  }
-
-  .content-part {
-    padding: 0px 16px;
   }
 }

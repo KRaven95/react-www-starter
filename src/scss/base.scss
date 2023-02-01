@@ -21,6 +21,7 @@ html {
   color: theme-var(--black);
   background-color: theme-var(--white);
   font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -37,8 +38,7 @@ section {
 }
 
 section {
-  position: relative;
-  overflow-x: hidden;
+  padding: 0px calc($grid-gutter-x * 0.5);
 }
 
 hr {
@@ -82,28 +82,4 @@ button {
   .drawer {
     z-index: 1001;
   }
-}
-
-.col {
-  flex-direction: column;
-}
-.row {
-  flex-direction: row;
-}
-.grid {
-  flex-wrap: wrap;
-}
-
-.light {
-  font-weight: $light;
-}
-.regular {
-  font-weight: $regular;
-}
-.bold {
-  font-weight: $bold;
-}
-
-.uppercase {
-  text-transform: uppercase;
 }

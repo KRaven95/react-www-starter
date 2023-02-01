@@ -12,14 +12,36 @@ $theme-map-dark: (
 );
 //COLORS
 
+// BREAKPOINTS
+$breakpoints: (
+  xs: 0px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
 //BREAKPOINTS
-$xs: 0px;
-$sm: 576px;
-$md: 768px;
-$lg: 992px;
-$xl: 1200px;
-$xxl: 1400px;
-//BREAKPOINTS
+
+// RESPONSIVE
+$responsive: (
+  l: "start",
+  c: "center",
+  r: "end"
+);
+// RESPONSIVE
+
+//POSITION VARIANTS
+$position-variants: (
+  l: "flex-start",
+  c: "center",
+  r: "flex-end"
+);
+//POSITION VARIANTS
+
+$grid-gutter-x: 32px;
+
+$page-max-width: 1920px;
 
 $size-dx: 8px;
 
@@ -35,6 +57,7 @@ $size-9: $size-dx * 9;
 $size-10: $size-dx * 10;
 
 $size-variants: (
+  0: 0,
   1: $size-1,
   2: $size-2,
   3: $size-3,

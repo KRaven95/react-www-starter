@@ -1,3 +1,5 @@
+@use "@scss/variables.scss" as *;
+
 .b {
   display: block;
 }
@@ -3647,4 +3649,32 @@
   .or-xxl-20 {
     order: 20;
   }
+}
+
+.col {
+  flex-direction: column;
+}
+.row {
+  flex-direction: row;
+}
+.grid {
+  flex-wrap: wrap;
+}
+
+.light {
+  font-weight: $light;
+}
+.regular {
+  font-weight: $regular;
+}
+.bold {
+  font-weight: $bold;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.underline {
+  text-decoration: underline;
 }

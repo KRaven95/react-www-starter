@@ -1,3 +1,18 @@
+%container {
+  width: 100%;
+  margin: auto;
+  height: max-content;
+}
+
+.rt-container-xl {
+  @extend %container;
+  max-width: 1140px;
+}
+.rt-container-xxl {
+  @extend %container;
+  max-width: 1440px;
+}
+
 @media (min-width: 0px) {
   .xs-1 {
     width: 8.3333333333%;

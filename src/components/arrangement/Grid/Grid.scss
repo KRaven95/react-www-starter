@@ -1,0 +1,21 @@
+@use "@scss/global.scss" as *;
+
+.rt-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: max-content;
+  box-sizing: border-box;
+  width: calc(100% + $grid-gutter-x);
+  margin-left: calc($grid-gutter-x * -0.5) !important;
+  margin-right: calc($grid-gutter-x * -0.5) !important;
+
+  > .rt-col {
+    box-sizing: border-box;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    padding-right: calc($grid-gutter-x * 0.5);
+    padding-left: calc($grid-gutter-x * 0.5);
+  }
+}
