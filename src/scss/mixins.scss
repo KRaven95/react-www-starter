@@ -63,7 +63,13 @@
   background-repeat: no-repeat;
 }
 
-@mixin mq($size) {
+@mixin mq-min($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin mq-max($size) {
   @media (max-width: $size) {
     @content;
   }

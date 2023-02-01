@@ -24,7 +24,7 @@ $breakpoints: (
 //BREAKPOINTS
 
 // RESPONSIVE
-$responsive: (
+$text-responsive: (
   l: "start",
   c: "center",
   r: "end"
@@ -38,6 +38,13 @@ $position-variants: (
   r: "flex-end"
 );
 //POSITION VARIANTS
+
+$width-variants: (
+  u: unset,
+  mc: max-content,
+  100: 100%,
+  i: initial
+);
 
 $grid-gutter-x: 32px;
 
@@ -55,9 +62,19 @@ $size-7: $size-dx * 7;
 $size-8: $size-dx * 8;
 $size-9: $size-dx * 9;
 $size-10: $size-dx * 10;
+$size-11: $size-dx * 11;
+$size-12: $size-dx * 12;
+$size-13: $size-dx * 13;
+$size-14: $size-dx * 14;
+$size-15: $size-dx * 15;
+$size-16: $size-dx * 16;
+$size-17: $size-dx * 17;
+$size-18: $size-dx * 18;
+$size-19: $size-dx * 19;
+$size-20: $size-dx * 20;
 
 $size-variants: (
-  0: 0,
+  0: 0px,
   1: $size-1,
   2: $size-2,
   3: $size-3,
@@ -67,7 +84,17 @@ $size-variants: (
   7: $size-7,
   8: $size-8,
   9: $size-9,
-  10: $size-10
+  10: $size-10,
+  11: $size-11,
+  12: $size-12,
+  13: $size-13,
+  14: $size-14,
+  15: $size-15,
+  16: $size-16,
+  17: $size-17,
+  18: $size-18,
+  19: $size-19,
+  20: $size-20
 );
 
 $order-variants: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20;
@@ -86,6 +113,19 @@ $percentage-variants: (
   0: 0%
 );
 
+$margins-paddings: (
+  m: margin,
+  mt: margin-top,
+  mr: margin-right,
+  mb: margin-bottom,
+  ml: margin-left,
+  p: padding,
+  pt: padding-top,
+  pr: padding-right,
+  pb: padding-bottom,
+  pl: padding-left
+);
+
 $display-variants: (
   b: block,
   f: flex,
@@ -97,6 +137,7 @@ $regular: 400;
 $bold: 700;
 
 $grid-values: (
+  0: calc((0 / 12) * 100%),
   1: calc((1 / 12) * 100%),
   2: calc((2 / 12) * 100%),
   3: calc((3 / 12) * 100%),

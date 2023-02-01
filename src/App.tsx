@@ -7,6 +7,7 @@ import "@scss/themes.scss";
 import "@scss/variables.scss";
 import "@scss/mixins.scss";
 import "@scss/grid.scss";
+import "@scss/responsive.scss";
 
 const App = () => {
   return <Routing />;
