@@ -95,3 +95,27 @@
 //     }
 //   }
 // }
+
+// @each $bp-key, $bp-val in $breakpoints {
+//   @each $sv-key, $sv-val in $size-variants {
+//     @include mq-min($bp-val) {
+//       .m-#{$bp-key}-a {
+//         margin: auto;
+//       }
+//     }
+//   }
+// }
+
+// @each $bp-key, $bp-val in $breakpoints {
+//   @each $sv-key, $sv-val in $size-variants {
+//     @include mq-min($bp-val) {
+//       .rg-#{$bp-key}-#{$sv-key} {
+//         row-gap: $sv-val;
+//       }
+
+//       .cg-#{$bp-key}-#{$sv-key} {
+//         column-gap: $sv-val;
+//       }
+//     }
+//   }
+// }
