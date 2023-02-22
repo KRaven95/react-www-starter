@@ -1,16 +1,27 @@
+@use "./variables.scss" as *;
+
 %container {
   width: 100%;
   margin: auto;
   height: max-content;
+  position: relative;
+}
+
+%container-xl {
+  @extend %container;
+  max-width: $content-max-width;
+}
+
+%container-xxl {
+  @extend %container;
+  max-width: $page-max-width;
 }
 
 .rt-container-xl {
-  @extend %container;
-  max-width: 1140px;
+  @extend %container-xl;
 }
 .rt-container-xxl {
-  @extend %container;
-  max-width: 1440px;
+  @extend %container-xxl;
 }
 
 @media (min-width: 0px) {

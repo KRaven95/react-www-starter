@@ -25,17 +25,17 @@ $breakpoints: (
 
 // RESPONSIVE
 $text-responsive: (
-  l: "start",
-  c: "center",
-  r: "end"
+  l: start,
+  c: center,
+  r: end
 );
 // RESPONSIVE
 
 //POSITION VARIANTS
 $position-variants: (
-  l: "flex-start",
-  c: "center",
-  r: "flex-end"
+  l: flex-start,
+  c: center,
+  r: flex-end
 );
 //POSITION VARIANTS
 
@@ -43,12 +43,13 @@ $width-variants: (
   u: unset,
   mc: max-content,
   100: 100%,
-  i: initial
+  a: auto
 );
 
-$grid-gutter-x: 32px;
+$grid-gutter-x: 34px;
 
 $page-max-width: 1920px;
+$content-max-width: 1140px;
 
 $size-dx: 8px;
 

@@ -1,5 +1,5 @@
 import { IChildren } from "@components/interfaces/IChildren";
-import { paths } from "@data/paths";
+import { paths } from "src/resources/paths";
 import Development from "@pages/Development/Development";
 import Main from "@pages/Main/Main";
 import NotFound from "@pages/NotFound/NotFound";

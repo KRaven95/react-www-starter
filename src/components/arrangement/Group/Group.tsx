@@ -17,24 +17,23 @@ export interface IGroup {
 }
 
 const Group = ({
-  rowGap = 0,
-  colGap = 0,
-  gap = 0,
-  grid = false,
+  rowGap,
+  colGap,
+  gap,
   fullSize = false,
   children,
   justifyContent = "flex-start",
   alignItems = "center",
   className = ""
 }: IGroup) => {
-  const classes = `group${className ? ` ${className}` : ""}${fullSize ? " full-size" : ""}${grid ? " grid" : ""}`;
+  const classes = `group${className ? ` ${className}` : ""}${fullSize ? " full-size" : ""}`;
   return (
     <div
       className={classes}
       style={{
-        columnGap: `${colGap}px`,
-        rowGap: `${rowGap}px`,
-        gap: `${gap}px`,
+        rowGap: rowGap ? `${rowGap}px` : undefined,
+        columnGap: colGap ? `${colGap}px` : undefined,
+        gap: gap ? `${gap}px` : undefined,
         justifyContent,
         alignItems
       }}

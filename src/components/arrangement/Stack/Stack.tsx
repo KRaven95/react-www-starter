@@ -16,9 +16,9 @@ export interface IStack {
 }
 
 const Stack = ({
-  rowGap = 0,
-  colGap = 0,
-  gap = 0,
+  rowGap,
+  colGap,
+  gap,
   fullSize = false,
   children,
   justifyContent = "flex-start",
@@ -30,9 +30,9 @@ const Stack = ({
     <div
       className={classes}
       style={{
-        rowGap: `${rowGap}px`,
-        columnGap: `${colGap}px`,
-        gap: `${gap}px`,
+        rowGap: rowGap ? `${rowGap}px` : undefined,
+        columnGap: colGap ? `${colGap}px` : undefined,
+        gap: gap ? `${gap}px` : undefined,
         justifyContent,
         alignItems
       }}

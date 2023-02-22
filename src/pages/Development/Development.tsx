@@ -1,6 +1,6 @@
 import React from "react";
 import { APP_STAGE } from "@config/config";
-import { paths } from "@data/paths";
+import { paths } from "src/resources/paths";
 import { Navigate } from "react-router-dom";
 
 const Development = () => {
