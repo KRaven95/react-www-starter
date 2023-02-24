@@ -130,3 +130,12 @@
 //     }
 //   }
 // }
+// @each $bp-key, $bp-val in $breakpoints {
+//   @each $ov-key in $order-variants {
+//     @include mq-min($bp-val) {
+//       .or-#{$bp-key}-#{$ov-key} {
+//         order: $ov-key;
+//       }
+//     }
+//   }
+// }
