@@ -1,4 +1,4 @@
-# presale-v2-go2nft
+# React App Starter
 
 This readme describes how to prepare and run this app.
 
