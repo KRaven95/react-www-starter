@@ -1,1 +1,1 @@
-export const SOME_CONST = "CONST";
+export const GLOBAL_TIMEOUT = 8000; //[ms]
