@@ -1,66 +1,111 @@
 import React from "react";
-import { ValidationPattern, validateInput } from "src/utils/validateInput";
 
-interface IFormProps {
-  validationPattern: ValidationPattern;
-  key: string;
-}
+import { FormFieldsWithMethods, IFormField, IStorage, UseFormFields, UseFormResponse } from "./types/useForm.types";
+import { readLocalStorage, readSessionStorage, writeLocalStorage, writeSessionStorage } from "src/utils/storage";
+import { validateInput } from "src/utils/validateInput";
+import { deepCopy } from "src/utils/deepCopy";
 
-type IFormField = IFormProps & {
-  value: string;
-  error: string;
-  showError: boolean;
-  update: (newValue: string) => void;
-};
+function useForm<K extends string>(fields: UseFormFields<K>, storage?: IStorage): UseFormResponse<K> {
+  const storageInitialFields = React.useMemo(
+    () =>
+      storage?.doStore
+        ? storage.storageType === "local-storage"
+          ? readSessionStorage(storage?.storageKey || "")
+          : readLocalStorage(storage?.storageKey || "")
+        : null,
+    []
+  );
 
-interface UseFormResponse {
-  formData: Record<string, Omit<IFormField, "key" | "validationPattern">>;
-  validateForm: () => void;
-  resetErrors: () => void;
-  resetForm: () => void;
-  isFormValid: boolean;
-}
+  type IForm = Record<K, IFormField>;
 
-const initialInput = { value: "", error: "", showError: false };
+  const initialFields: IForm = React.useMemo(() => {
+    const fieldsObj: any = {};
+    for (const key in fields) {
+      fieldsObj[key] = {
+        value: fields[key].initialValue,
+        error: "",
+        touched: false,
+        toShowError: false
+      };
+    }
+    return fieldsObj;
+  }, []);
 
-const useForm = (props: IFormProps[]): UseFormResponse => {
-  const updateInput = (key: string, newValue: string) => {
-    const copy: IFormField[] = { ...form };
+  const [form, setForm] = React.useState<IForm>(storageInitialFields || initialFields);
 
-    const inputIndex = form.findIndex((input) => input.key === key);
-    const schema = copy[inputIndex].validationPattern;
-    const errors = validateInput(newValue, schema);
-    copy[inputIndex].error = errors;
-    copy[inputIndex].value = newValue;
-    copy[inputIndex].showError = errors.length === 0 ? false : copy[inputIndex].showError;
+  const updateFieldValue = (key: K, value: string) => {
+    const errors = validateInput(value, fields[key].validationPattern);
 
-    setForm(copy);
+    setForm((prev) => ({
+      ...deepCopy(prev),
+      [key]: {
+        value,
+        error: errors,
+        touched: true,
+        toShowError:
+          errors.length === 0 || (prev[key].error.length === 0 && prev[key].toShowError) ? false : prev[key].toShowError
+      }
+    }));
   };
 
-  const initialForm = props.map((input) => ({
-    ...input,
-    ...initialInput,
-    update: (newValue: string) => () => updateInput(input.key, newValue)
-  }));
-  const [form, setForm] = React.useState<IFormField[]>(initialForm);
+  const validateField = (key: K) => {
+    setForm((prev) => ({
+      ...deepCopy(prev),
+      [key]: {
+        ...prev[key],
+        toShowError: true
+      }
+    }));
+  };
+
+  const resetField = (key: K) => {
+    setForm((prev) => ({ ...deepCopy(prev), [key]: initialFields[key] }));
+  };
 
   const validateForm = () => {
-    setForm((prev) => prev.map((input) => ({ ...input, showError: true })));
+    const formCopy = deepCopy<IForm>(form);
+
+    for (const key in formCopy) {
+      const errors = validateInput(formCopy[key].value, fields[key].validationPattern);
+      formCopy[key].error = errors;
+      formCopy[key].toShowError = true;
+    }
+
+    setForm(formCopy);
   };
-  const resetErrors = () => {
-    setForm((prev) => prev.map((input) => ({ ...input, error: "" })));
+  const resetForm = () => setForm(initialFields);
+
+  const _getFinalForm = (): FormFieldsWithMethods<K> => {
+    const toReturn: any = {};
+
+    for (const key in form) {
+      toReturn[key] = {
+        ...form[key],
+        update: (value: string) => updateFieldValue(key, value),
+        validate: () => validateField(key),
+        reset: () => resetField(key)
+      };
+    }
+    return toReturn;
   };
-  const resetForm = () => {
-    setForm((prev) => prev.map((input) => ({ ...input, ...initialInput })));
+
+  const isValid = () => {
+    const formAsArray: IFormField[] = Object.values(form);
+    return (
+      formAsArray.filter(({ error, touched, value }) => touched && error.length === 0 && value.length > 0).length ===
+      formAsArray.length
+    );
   };
 
-  const isFormValid = form.filter((input) => input.error.length > 0).length === 0;
+  React.useEffect(() => {
+    if (!!form && storage?.doStore) {
+      storage.storageType === "local-storage"
+        ? writeSessionStorage(storage.storageKey, form)
+        : writeLocalStorage(storage.storageKey, form);
+    }
+  }, [storage, form]);
 
-  const formData: Record<string, Omit<IFormField, "key" | "validationPattern">> = {};
-
-  form.forEach(({ key, ...rest }) => (formData[`${key}` as string] = rest));
-
-  return { formData, validateForm, resetErrors, resetForm, isFormValid };
-};
+  return { fields: _getFinalForm(), validate: validateForm, reset: resetForm, isValid: isValid() };
+}
 
 export default useForm;
