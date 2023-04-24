@@ -1,16 +1,21 @@
-import type { Config } from "jest";
+export default {
+  preset: "ts-jest",
+  moduleNameMapper: {
+    // if your using tsconfig.paths thers is no harm in telling jest
+    "@components/(.*)$": "<rootDir>/src/components/$1",
+    "@/(.*)$": "<rootDir>/src/$1",
 
-const { defaults } = require("jest-config");
-
-const config: Config = {
-  globals: {
-    "ts-jest": {
-      isolatedModules: true
-    }
+    // mocking assests and styling
+    "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+      "<rootDir>/tests/mocks/fileMock.ts",
+    "^.+\\.(css|less|scss|sass)$": "<rootDir>/tests/mocks/styleMock.ts",
+    /* mock models and services folder */
+    "(assets|models|services)": "<rootDir>/tests/mocks/fileMock.ts"
   },
-  clearMocks: true,
-  moduleDirectories: ["node_modules"],
-  moduleFileExtensions: [defaults.moduleFileExtensions, "ts", "tsx"]
-};
+  // to obtain access to the matchers.
+  // setupFilesAfterEnv: [""],
 
-export default config;
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+  modulePaths: ["<rootDir>/src/test/setupTests.ts"],
+  testEnvironment: "jsdom"
+};

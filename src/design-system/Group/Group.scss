@@ -1,0 +1,17 @@
+@use "@scss/global.scss" as *;
+
+.group {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  height: max-content;
+
+  &.full-size {
+    height: 100%;
+    width: 100%;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+}
