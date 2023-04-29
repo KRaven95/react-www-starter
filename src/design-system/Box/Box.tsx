@@ -10,7 +10,7 @@ const Box = React.forwardRef(({ children }: IBox, ref: any) => {
   return (
     <div className="ds-box box" ref={ref}>
       {children}
-      <Button href="google.com" rest={{ download: true, autoFocus: false }} onClick={() => {}}>
+      <Button href="google.com" onClick={() => {}}>
         dupa
       </Button>
     </div>

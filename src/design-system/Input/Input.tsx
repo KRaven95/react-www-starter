@@ -1,35 +1,21 @@
-import React, { HTMLInputTypeAttribute } from "react";
-import "./Input.scss";
+import { FC, InputHTMLAttributes, TextareaHTMLAttributes } from "react";
 
-interface IInput {
-  label?: string;
-  value: string;
-  onChange(value: string): void;
-  error?: string;
-  placeholder?: string;
-  type?: "text" | "email" | "number" | "password" | "search" | "tel" | "url";
-}
+type Props = {
+  as?: "input" | "textarea"; // Specify which element to use
+  className?: string; // Optional class name
+} & InputHTMLAttributes<HTMLInputElement> &
+  TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-const Input = ({ label = "", onChange, value, error = "", placeholder = "", type = "search" }: IInput) => {
-  const id = React.useId();
-  return (
-    <div className="input">
-      {label && (
-        <label className="label" htmlFor={id}>
-          {label}
-        </label>
-      )}
-      <input
-        id={id}
-        className={error && "danger-border"}
-        value={value}
-        onChange={(e) => onChange(e.currentTarget.value)}
-        placeholder={placeholder}
-        type={type}
-      />
-      {error && <p className="s2 error danger-color">{error}</p>}
-    </div>
-  );
+const Input: FC<Props> = ({ as = "input", className = "", ...restProps }) => {
+  // Determine which element to render based on the "as" prop
+  const Element = as === "textarea" ? "textarea" : "input";
+
+  // Combine the provided className with the base className
+  const baseClassName = "ds-input";
+  const combinedClassName = className ? `${baseClassName} ${className}` : baseClassName;
+
+  // Return the appropriate element with the provided props
+  return <Element className={combinedClassName} {...restProps} />;
 };
 
 export default Input;

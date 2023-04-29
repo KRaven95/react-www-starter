@@ -1,10 +1,9 @@
 import React from "react";
-import "./Badge.scss";
 
 interface IBadge {}
 
-const Badge = React.forwardRef(({}: IBadge, ref: any) => {
-  return <div className="badge ds-badge" ref={ref}></div>;
-});
+const Badge = ({}: IBadge) => {
+  return <div className="ds-badge"></div>;
+};
 
 export default Badge;

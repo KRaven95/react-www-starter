@@ -1,38 +1,39 @@
-import React from "react";
+import { FC, ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
+import { Link } from "react-router-dom";
 
-// import "./Button.scss";
+type Props = {
+  as?: "button" | "a" | "link"; // Specify which element to use
+  to?: string; // Only used when as='link'
+  className?: string;
+} & ButtonHTMLAttributes<HTMLButtonElement> &
+  AnchorHTMLAttributes<HTMLAnchorElement>;
 
-interface IButton {
-  onClick?: () => void;
-  href?: string;
-  children: React.ReactNode;
-  rest?: React.ComponentProps<"button"> | React.ComponentProps<"a">;
-}
+const Button: FC<Props> = ({ as = "button", to, className = "", children, ...restProps }) => {
+  const baseClassName = "ds-button";
+  const combinedClassName = `${baseClassName}${className ? ` ${className}` : ""}`;
 
-const Button = React.forwardRef(({ onClick, href, children, ...rest }: IButton, ref: any) => {
-  if ((!!onClick && !!href) || (!onClick && !href)) {
-    throw new Error("Component should have only one prop from onClick and href");
-  }
-
-  const classes = "btn ds-btn";
-
-  if (!!onClick) {
+  // Determine which element to render based on the "as" prop
+  if (as === "button") {
     return (
-      <button className={classes} ref={ref} onClick={onClick} {...rest}>
+      <button className={combinedClassName} type="button" {...restProps}>
         {children}
       </button>
     );
-  }
-
-  if (!!href) {
+  } else if (as === "a") {
     return (
-      <a className={classes} ref={ref} href={href} {...rest}>
+      <a className={combinedClassName} href="#" {...restProps}>
         {children}
       </a>
     );
+  } else if (as === "link") {
+    return (
+      <Link className={combinedClassName} to={to ?? "#"} {...restProps}>
+        {children}
+      </Link>
+    );
+  } else {
+    throw new Error(`Invalid Button "as" prop: ${as}`);
   }
-
-  throw new Error("Wrong call of an component. Component need to have provided onClick function or href string");
-});
+};
 
 export default Button;

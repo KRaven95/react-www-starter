@@ -1,0 +1,39 @@
+.ds-tooltip-wrapper {
+  position: relative;
+
+  .ds-tooltip {
+    position: absolute;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    background-color: #333;
+    color: #fff;
+    z-index: 999;
+
+    &-top {
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-0.5rem);
+    }
+
+    &-right {
+      top: 50%;
+      left: 100%;
+      transform: translateX(0.5rem) translateY(-50%);
+    }
+
+    &-bottom {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(0.5rem);
+    }
+
+    &-left {
+      top: 50%;
+      right: 100%;
+      transform: translateX(-0.5rem) translateY(-50%);
+    }
+
+    .ds-tooltip-children {
+    }
+  }
+}

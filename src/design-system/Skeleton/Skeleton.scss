@@ -1,0 +1,28 @@
+@keyframes skeleton {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.ds-skeleton {
+  display: inline-block;
+  background: linear-gradient(90deg, #f2f2f2 0px, #e6e6e6 50%, #f2f2f2 100%);
+  background-size: 200% 100%;
+  animation: skeleton 1.5s ease-in-out infinite;
+}
+
+.ds-skeleton-avatar {
+  border-radius: 50%;
+}
+
+.ds-skeleton-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.ds-skeleton-text-line {
+  height: 1.5;
+}
