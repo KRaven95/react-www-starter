@@ -1,9 +1,19 @@
-import React from "react";
+import { ReactNode } from "react";
 
-interface IBadge {}
+import "./Badge.scss";
 
-const Badge = ({}: IBadge) => {
-  return <div className="ds-badge"></div>;
+type BadgeProps = {
+  number: number;
+  children: ReactNode;
+};
+
+const Badge = ({ number, children }: BadgeProps) => {
+  return (
+    <div className="ds-badge-container">
+      {children}
+      <div className="ds-badge">{number}</div>
+    </div>
+  );
 };
 
 export default Badge;
