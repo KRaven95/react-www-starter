@@ -8,14 +8,13 @@ type Props = {
 
 const Input: FC<Props> = ({ as = "input", className = "", ...restProps }) => {
   // Determine which element to render based on the "as" prop
-  const Element = as === "textarea" ? "textarea" : "input";
+  const TextField = as === "textarea" ? "textarea" : "input";
 
   // Combine the provided className with the base className
-  const baseClassName = "ds-input";
-  const combinedClassName = className ? `${baseClassName} ${className}` : baseClassName;
+  const combinedClassName = `ds-input ${className}`;
 
   // Return the appropriate element with the provided props
-  return <Element className={combinedClassName} {...restProps} />;
+  return <TextField className={combinedClassName} {...restProps} />;
 };
 
 export default Input;
