@@ -1,5 +1,5 @@
 import React from "react";
-import "./Tooltip.scss";
+import "@design-system/design-system.scss";
 
 type TooltipProps = {
   children: React.ReactNode;
