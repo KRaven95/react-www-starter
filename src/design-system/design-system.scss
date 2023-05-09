@@ -143,13 +143,19 @@
 }
 
 .ds-tooltip-wrapper {
+  $bgColor: #464646;
+  $dimension: 10px;
   position: relative;
+  width: 100%;
 
   .ds-tooltip {
     position: absolute;
     padding: 0.5rem;
     border-radius: 0.25rem;
-    background-color: #333;
+    background-color: $bgColor;
+    opacity: 0.85;
+    font-size: 12px;
+    width: 100%;
     color: #fff;
     z-index: 999;
 
@@ -178,6 +184,16 @@
     }
 
     .ds-tooltip-children {
+    }
+
+    .ds-tooltip-triangle {
+      width: $dimension;
+      height: $dimension;
+      background-color: $bgColor;
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      transform: translate(-50%, 50%) rotate(45deg);
     }
   }
 }
