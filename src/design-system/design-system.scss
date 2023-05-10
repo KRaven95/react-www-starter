@@ -197,3 +197,32 @@
     }
   }
 }
+
+.ds-skeleton {
+  @keyframes skeleton {
+    0% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
+
+  display: inline-block;
+  background: linear-gradient(90deg, #f2f2f2 0px, #e6e6e6 50%, #f2f2f2 100%);
+  background-size: 200% 100%;
+  animation: skeleton 1.5s ease-in-out infinite;
+
+  &-avatar {
+    border-radius: 50%;
+  }
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-text-line {
+    height: 1.5;
+  }
+}
