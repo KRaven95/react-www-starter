@@ -203,26 +203,40 @@
     0% {
       background-position: 100% 50%;
     }
-    100% {
+    50% {
       background-position: 0 50%;
+    }
+    100% {
+      background-position: 100% 50%;
     }
   }
 
+  @mixin ds-animation {
+    background: linear-gradient(90deg, #f2f2f2 0px, #dbdbdb 50%, #f2f2f2 100%);
+    animation: skeleton 3s ease-in-out infinite;
+    background-size: 200% 100%;
+    border-radius: 2px;
+  }
+
   display: inline-block;
-  background: linear-gradient(90deg, #f2f2f2 0px, #e6e6e6 50%, #f2f2f2 100%);
-  background-size: 200% 100%;
-  animation: skeleton 1.5s ease-in-out infinite;
+
+  &-animation {
+    @include ds-animation;
+  }
 
   &-avatar {
+    @include ds-animation;
+    aspect-ratio: 1/1;
     border-radius: 50%;
+    margin: auto;
   }
 
   &-text {
     display: flex;
     flex-direction: column;
-  }
 
-  &-text-line {
-    height: 1.5;
+    .text-line {
+      @include ds-animation;
+    }
   }
 }
