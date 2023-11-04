@@ -1,4 +1,4 @@
-import { IChildren } from "@components/interfaces/IChildren";
+import { IChildren } from "src/interfaces/IChildren";
 import React from "react";
 import "./Dialog.scss";
 

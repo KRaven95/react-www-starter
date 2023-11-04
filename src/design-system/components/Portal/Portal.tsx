@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { IChildren } from "@components/interfaces/IChildren";
+import { IChildren } from "src/interfaces/IChildren";
 import { createPortal } from "react-dom";
 
 interface IPortalProps {

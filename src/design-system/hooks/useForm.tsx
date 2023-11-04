@@ -23,7 +23,7 @@ function useForm<K extends string>(fields: UseFormFields<K>, storage?: IStorage)
     for (const key in fields) {
       fieldsObj[key] = {
         value: fields[key].initialValue,
-        error: "",
+        errors: [],
         touched: false,
         toShowError: false
       };
@@ -40,10 +40,12 @@ function useForm<K extends string>(fields: UseFormFields<K>, storage?: IStorage)
       ...deepCopy(prev),
       [key]: {
         value,
-        error: errors,
+        errors,
         touched: true,
         toShowError:
-          errors.length === 0 || (prev[key].error.length === 0 && prev[key].toShowError) ? false : prev[key].toShowError
+          errors.length === 0 || (prev[key].errors.length === 0 && prev[key].toShowError)
+            ? false
+            : prev[key].toShowError
       }
     }));
   };
@@ -67,7 +69,7 @@ function useForm<K extends string>(fields: UseFormFields<K>, storage?: IStorage)
 
     for (const key in formCopy) {
       const errors = validateInput(formCopy[key].value, fields[key].validationPattern);
-      formCopy[key].error = errors;
+      formCopy[key].errors = errors;
       formCopy[key].toShowError = true;
     }
 
@@ -92,7 +94,7 @@ function useForm<K extends string>(fields: UseFormFields<K>, storage?: IStorage)
   const isValid = () => {
     const formAsArray: IFormField[] = Object.values(form);
     return (
-      formAsArray.filter(({ error, touched, value }) => touched && error.length === 0 && value.length > 0).length ===
+      formAsArray.filter(({ errors, touched, value }) => touched && errors.length === 0 && value.length > 0).length ===
       formAsArray.length
     );
   };

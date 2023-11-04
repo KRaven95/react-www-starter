@@ -1,6 +1,6 @@
 import React from "react";
-import { IChildren } from "@components/interfaces/IChildren";
 import "./Notification.scss";
+import { IChildren } from "src/interfaces/IChildren";
 
 const Notification = ({ children }: IChildren) => {
   return <div className="notification">{children}</div>;

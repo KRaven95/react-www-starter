@@ -1,5 +1,4 @@
 import React from "react";
-import Content from "../Content/Content";
 import "./Layout.scss";
 
 export type LayoutVariant = "navbar-content-footer" | "navbar-sidebar-content" | "sidebar-navbar-content" | "no-layout";
@@ -35,7 +34,7 @@ const Layout = ({ variant, Navbar, Sidebar, Footer, children }: LayoutProps) => 
           <div className="bottom-part f">
             <aside className="sidebar-part">{Sidebar && <Sidebar />}</aside>
             <div className="content-part">
-              <Content>{children}</Content>
+              <main className="content-part">{children}</main>
             </div>
           </div>
         </div>
@@ -49,7 +48,7 @@ const Layout = ({ variant, Navbar, Sidebar, Footer, children }: LayoutProps) => 
           <div className="right-part">
             <header className="navbar-part">{Navbar && <Navbar />}</header>
             <div className="content-part">
-              <Content>{children}</Content>
+              <main className="content-part">{children}</main>
             </div>
           </div>
         </div>

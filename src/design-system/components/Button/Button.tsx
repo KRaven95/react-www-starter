@@ -1,13 +1,15 @@
 import { ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 import { Link, LinkProps } from "react-router-dom";
 
-type ButtonProps<T extends keyof JSX.IntrinsicElements | "link"> = T extends "link"
+type ButtonProps<T extends keyof JSX.IntrinsicElements | "a" | "link"> = T extends "link"
   ? LinkProps & { as: "link" }
+  : T extends "a"
+  ? AnchorHTMLAttributes<HTMLAnchorElement> & { as: "a" }
   : { as: T } & (T extends keyof JSX.IntrinsicElements
       ? ButtonHTMLAttributes<HTMLButtonElement>
       : AnchorHTMLAttributes<HTMLAnchorElement>);
 
-function Button<T extends keyof JSX.IntrinsicElements | "link">({ as, ...rest }: ButtonProps<T>) {
+function Button<T extends keyof JSX.IntrinsicElements | "a" | "link">({ as, ...rest }: ButtonProps<T>) {
   const classes = `ds-button ${rest.className || ""}`;
   if (as === "button") {
     return <button {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)} className={classes} />;

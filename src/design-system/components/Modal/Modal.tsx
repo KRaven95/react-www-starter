@@ -1,5 +1,5 @@
 import React from "react";
-import { IChildren } from "@components/interfaces/IChildren";
+import { IChildren } from "src/interfaces/IChildren";
 import "./Modal.scss";
 
 const Modal = ({ children }: IChildren) => {

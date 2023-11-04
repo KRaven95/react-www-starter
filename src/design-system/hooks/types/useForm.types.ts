@@ -17,7 +17,7 @@ export type UseFormFields<K extends string> = Record<K, IEntryFormField>;
 
 export interface IFormField {
   value: string;
-  error: string;
+  errors: string[];
   toShowError: boolean;
   touched: boolean;
 }
