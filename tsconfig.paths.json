@@ -2,35 +2,41 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@app/*": [
+        "./src/app/*"
+      ],
+      "@api/*": [
+        "./src/api/*"
+      ],
       "@components/*": [
         "./src/components/*"
       ],
-      "@config/*": [
-        "./src/config/*"
+      "@constants/*": [
+        "./src/constants/*"
       ],
       "@contexts/*": [
         "./src/contexts/*"
       ],
-      "@data/*": [
-        "./src/data/*"
-      ],
-      "@features/*": [
-        "./src/features/*"
+      "@guards/*": [
+        "./src/guards/*"
       ],
       "@hooks/*": [
         "./src/hooks/*"
       ],
-      "@pages/*": [
-        "./src/pages/*"
-      ],
       "@scss/*": [
         "./src/scss/*"
       ],
-      "@services/*": [
-        "./src/services/*"
-      ],
       "@tests/*": [
         "./src/tests/*"
+      ],
+      "@translations/*": [
+        "./src/translations/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@design-system/*": [
+        "./src/design-system/*"
       ],
       "@images/*": [
         "./public/images/*"
@@ -44,8 +50,8 @@
       "@pdfs/*": [
         "./public/pdfs/*"
       ],
-      "@sharedComponents/*": [
-        "./src/pages/shared-components/*"
+      "@locales/*": [
+        "./public/locales/*"
       ]
     }
   }

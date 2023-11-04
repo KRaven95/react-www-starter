@@ -1,40 +1,68 @@
 import React from "react";
-import "./Skeleton.css";
 
 type SkeletonProps = {
-  width?: string;
-  height?: string;
-  type?: "default" | "avatar" | "text";
+  type: {
+    default?: {
+      width: string;
+      height: string;
+    };
+    circular?: {
+      sizePx: number;
+    };
+    text?: {
+      linesNumber: number;
+      rowGapPx: number;
+      lineHeight: number;
+    };
+  };
   className?: string;
-  textLines?: number;
 };
 
-const Skeleton: React.FC<SkeletonProps> = ({
-  width = "100%",
-  height = "100%",
-  type = "default",
-  className = "",
-  textLines = 1
-}) => {
-  let skeletonClass = "ds-skeleton";
-  if (className) {
-    skeletonClass += ` ${className}`;
-  }
+const Skeleton: React.FC<SkeletonProps> = ({ type, className }) => {
+  const baseClass = `ds-skeleton`;
+  let baseClassWithExtension = `${baseClass}${className ? ` ${className}` : ""}`;
 
-  if (type === "avatar") {
-    skeletonClass += " ds-skeleton-avatar";
-  } else if (type === "text") {
-    skeletonClass += " ds-skeleton-text";
-  }
+  const getSkeletonType = () => {
+    if (!!type?.circular) return "circular";
+    else if (!!type?.text) return "text";
+    else if (!!type?.default) return "default";
+    else throw new Error("Skeleton must be type one of type: `default`, `circular`, `text`");
+  };
+
+  const skeletonType = getSkeletonType();
+
+  if (skeletonType === "circular") baseClassWithExtension += ` ${baseClass}-avatar`;
+  if (skeletonType === "default") baseClassWithExtension += ` ${baseClass}-animation`;
+  if (skeletonType === "text") baseClassWithExtension += ` ${baseClass}-text`;
+
+  const getSkeletonWidth = () => {
+    switch (skeletonType) {
+      case "circular":
+        return type!.circular!.sizePx;
+      case "text":
+        return "100%";
+      case "default":
+        return type!.default!.width;
+    }
+  };
+
+  const skeletonWidth = getSkeletonWidth();
+  const skeletonHeight = skeletonType === "default" ? type!.default!.height : undefined;
+  const textRowGap = skeletonType === "text" ? type!.text!.rowGapPx : undefined;
+  const textLineStyles = { width: "100%", height: type?.text?.lineHeight };
+  const skeletonStyles = { height: skeletonHeight, width: skeletonWidth, rowGap: textRowGap };
 
   const textLineElements: JSX.Element[] = [];
-  for (let i = 0; i < textLines; i++) {
-    textLineElements.push(<div key={i} className="ds-skeleton-text-line"></div>);
+  if (skeletonType === "text") {
+    for (let i = 0; i < type!.text!.linesNumber; i++) {
+      textLineElements.push(<div className="text-line" style={textLineStyles}></div>);
+    }
   }
 
   return (
-    <div className={skeletonClass} style={{ width, height }}>
-      {type === "text" && textLineElements}
+    <div className={baseClassWithExtension} style={skeletonStyles}>
+      {textLineElements.length > 0 &&
+        textLineElements.map((element, index) => <React.Fragment key={index}>{element}</React.Fragment>)}
     </div>
   );
 };

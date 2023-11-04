@@ -141,3 +141,102 @@
     }
   }
 }
+
+.ds-tooltip-wrapper {
+  $bgColor: #464646;
+  $dimension: 10px;
+  position: relative;
+  width: 100%;
+
+  .ds-tooltip {
+    position: absolute;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    background-color: $bgColor;
+    opacity: 0.85;
+    font-size: 12px;
+    width: 100%;
+    color: #fff;
+    z-index: 999;
+
+    &-top {
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-0.5rem);
+    }
+
+    &-right {
+      top: 50%;
+      left: 100%;
+      transform: translateX(0.5rem) translateY(-50%);
+    }
+
+    &-bottom {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(0.5rem);
+    }
+
+    &-left {
+      top: 50%;
+      right: 100%;
+      transform: translateX(-0.5rem) translateY(-50%);
+    }
+
+    .ds-tooltip-children {
+    }
+
+    .ds-tooltip-triangle {
+      width: $dimension;
+      height: $dimension;
+      background-color: $bgColor;
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      transform: translate(-50%, 50%) rotate(45deg);
+    }
+  }
+}
+
+.ds-skeleton {
+  @keyframes skeleton {
+    0% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 0 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @mixin ds-animation {
+    background: linear-gradient(90deg, #f2f2f2 0px, #dbdbdb 50%, #f2f2f2 100%);
+    animation: skeleton 3s ease-in-out infinite;
+    background-size: 200% 100%;
+    border-radius: 2px;
+  }
+
+  display: inline-block;
+
+  &-animation {
+    @include ds-animation;
+  }
+
+  &-avatar {
+    @include ds-animation;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin: auto;
+  }
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+
+    .text-line {
+      @include ds-animation;
+    }
+  }
+}
