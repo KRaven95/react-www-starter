@@ -1,42 +1,62 @@
 import React from "react";
-import { AxiosError, AxiosResponse } from "axios";
-import { PaginationMeta } from "src/api/dtos.types";
-import useLoading from "./useLoading";
+import { AxiosError, AxiosHeaders, AxiosResponse } from "axios";
+import useBoolean from "./useBoolean";
 
-interface HookReturnData<T> {
-  response: T | null;
-  errorMessage: AxiosError | null;
-  isLoading: boolean;
-  requestTrigger: (queryParams?: PaginationMeta) => Promise<void>;
+interface HookArgs<A, R> {
+  requestFn: (args?: A) => Promise<AxiosResponse<R, any>>;
+  beforeStart?: () => void;
+  onSuccessFn?: () => void;
+  onError?: (error: AxiosError) => void;
+  onFinally?: () => void;
+  setDataOnSuccess?: (responseData: R) => void;
 }
 
-function useRequest<T>(
-  requestFn: (queryParams?: PaginationMeta) => Promise<AxiosResponse<T, any>>,
-  onError?: () => void
-): HookReturnData<T> {
-  const [response, setResponse] = React.useState<T | null>(null);
-  const [errorMessage, setErrorMessage] = React.useState<AxiosError | null>(null);
-  const { isLoading, startLoading, stopLoading } = useLoading();
+interface RequestArguments<A> {
+  args: A;
+}
 
-  const requestTrigger = async (queryParams?: PaginationMeta) => {
-    startLoading();
+type HookReturnData<A, R> = [
+  requestTrigger: (props: RequestArguments<A>) => Promise<void>,
+  isLoading: boolean,
+  response: R | null,
+  axiosError: AxiosError | null,
+  headers: AxiosHeaders
+];
+
+function useRequestV2<A, R>({
+  requestFn,
+  setDataOnSuccess,
+  onError,
+  onSuccessFn,
+  beforeStart,
+  onFinally
+}: HookArgs<A, R>): HookReturnData<A, R> {
+  const [response, setResponse] = React.useState<R | null>(null);
+  const [headers, setHeaders] = React.useState<any | null>(null);
+  const [axiosError, setAxiosError] = React.useState<AxiosError | null>(null);
+  const [isLoading, setLoading, resetLoading] = useBoolean(false);
+
+  const requestTrigger = async (props: RequestArguments<A>) => {
+    setLoading();
+    if (!!beforeStart) beforeStart();
     try {
-      const response = await requestFn(queryParams);
+      const response = await requestFn(props.args);
+      setHeaders(response.headers);
       setResponse(response.data);
+
+      if (!!setDataOnSuccess) setDataOnSuccess(response.data);
+      if (!!onSuccessFn) onSuccessFn();
     } catch (e: unknown) {
-      if (onError) {
-        onError();
-      }
-
       if (!(e instanceof AxiosError)) throw e;
-
-      setErrorMessage(e);
+      setAxiosError(e);
+      if (!!onError) onError(e);
     } finally {
-      stopLoading();
+      resetLoading();
+      if (!!onFinally) onFinally();
     }
   };
 
-  return { requestTrigger, isLoading, response, errorMessage };
+  return [requestTrigger, isLoading, response, axiosError, headers];
 }
 
-export default useRequest;
+export default useRequestV2;
