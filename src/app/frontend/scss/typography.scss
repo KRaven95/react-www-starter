@@ -1,0 +1,98 @@
+@use "@app-scss/global.scss" as *;
+
+//TYPOGRAPHY
+
+@mixin h1 {
+  @include text($fs-d1, $regular, $ls-1, $lh-1);
+}
+
+@mixin h2 {
+  @include text($fs-1, $bold, $ls-1, $lh-2);
+}
+
+@mixin h3 {
+  @include text($fs-2, $bold, $ls-1, $lh-3);
+}
+
+@mixin h4 {
+  @include text($fs-3, $bold, $ls-1, $lh-3);
+}
+
+@mixin h5 {
+  @include text($fs-4, $bold, $ls-1, $lh-3);
+}
+
+@mixin h6 {
+  @include text($fs-5, $bold, $ls-1, $lh-4);
+}
+
+@mixin tagline {
+  @include text($fs-7, $semi-bold, $ls-2, $lh-5);
+}
+
+@mixin p1 {
+  @include text($fs-6, $regular, $ls-2, $lh-5);
+}
+
+@mixin p2 {
+  @include text($fs-7, $medium, $ls-2, $lh-5);
+}
+
+@mixin b1 {
+  @include text($fs-8, $light, $ls-3, $lh-5);
+}
+
+@mixin b2 {
+  @include text($fs-9, $regular, $ls-1, $lh-4);
+}
+
+h1,
+.h1 {
+  @include h1();
+}
+
+h2,
+.h2 {
+  @include h2();
+}
+
+h3,
+.h3 {
+  @include h3();
+}
+
+h4,
+.h4 {
+  @include h4();
+}
+
+h5,
+.h5 {
+  @include h5();
+}
+
+h6,
+.h6 {
+  @include h6();
+}
+
+.p1 {
+  @include p1();
+}
+
+.p2 {
+  @include p2();
+}
+
+.b1 {
+  @include b1();
+}
+.b2 {
+  @include b2();
+}
+
+.tagline {
+  @include tagline();
+}
+
+//TYPOGRAPHY

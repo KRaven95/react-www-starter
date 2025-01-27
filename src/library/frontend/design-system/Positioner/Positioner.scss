@@ -1,0 +1,49 @@
+@use "@scss/global.scss" as *;
+
+.positioner {
+  position: absolute;
+  //x - l, c, r
+  //y - t, c, b
+
+  &.l-t {
+    left: 0px;
+    top: 0px;
+  }
+  &.l-c {
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &.l-b {
+    left: 0px;
+    bottom: 0px;
+  }
+  &.c-t {
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &.c-c {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &.c-b {
+    left: 50%;
+    bottom: 0px;
+    transform: translateX(-50%);
+  }
+  &.r-t {
+    top: 0px;
+    right: 0px;
+  }
+  &.r-c {
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &.r-b {
+    right: 0px;
+    bottom: 0px;
+  }
+}

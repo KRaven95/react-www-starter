@@ -1,0 +1,37 @@
+@use "@scss/global.scss" as *;
+@use "@scss/animations.scss" as *;
+
+.backdrop-wrapper {
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+
+  // overscroll-behavior: contain;
+
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 999;
+
+  .backdrop {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0);
+    -webkit-transition: background 0.2s ease-in-out;
+    transition: background 0.2s ease-in-out;
+  }
+
+  &.open {
+    .backdrop {
+      -webkit-animation: show-blur 0.2s both;
+      animation: show-blur 0.2s both;
+    }
+  }
+
+  &.hide {
+    .backdrop {
+      -webkit-animation: hide-blur 0.2s both;
+      animation: hide-blur 0.2s both;
+    }
+  }
+}

@@ -1,0 +1,95 @@
+@use "./mixins.scss" as *;
+
+@include keyframes(opacity-transition) {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@include keyframes(pulse-opacity) {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@include keyframes(backdrop-filter-transition) {
+  0% {
+    @include bg-blur(0px);
+  }
+  50% {
+    @include bg-blur(10px);
+  }
+  100% {
+    @include bg-blur(0px);
+  }
+}
+
+@include keyframes(smooth-appear) {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@include keyframes(pulsing-scale) {
+  0% {
+    transform: scale(1);
+  }
+
+  33% {
+    transform: scale(1.05);
+  }
+
+  66% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@include keyframes(bg_blur) {
+  0% {
+    @include bg-blur(0px);
+    @include bg-blur(0px);
+  }
+  100% {
+    @include bg-blur(5px);
+    @include bg-blur(5px);
+  }
+}
+
+@include keyframes(show-blur) {
+  0% {
+    @include bg-blur(0px);
+    background: rgba(black, 0);
+  }
+  100% {
+    @include bg-blur(5px);
+    background: rgba(black, 0.2);
+  }
+}
+
+@include keyframes(hide-blur) {
+  0% {
+    @include bg-blur(5px);
+    background: rgba(black, 0.2);
+  }
+  100% {
+    @include bg-blur(0px);
+    background: rgba(black, 0);
+  }
+}

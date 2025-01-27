@@ -1,0 +1,47 @@
+//COLORS
+$white-0: #ffffff;
+$shade-1: #f2f2f2;
+$shade-2: #e6e6e6;
+$shade-3: #d9d9d9;
+$shade-4: #cccccc;
+$shade-5: #b3b3b3;
+$shade-6: #999999;
+$shade-7: #808080;
+$shade-8: #666666;
+$shade-9: #4d4d4d;
+$shade-10: #333333;
+$shade-11: #262626;
+$shade-12: #1a1a1a;
+$shade-13: #0d0d0d;
+$black-0: #000000;
+
+$white: #fbfbfd;
+$black: #152c49;
+//COLORS
+
+// FONT-SIZES
+$fs-d1: 56px; // Largest found font-size
+$fs-1: 48px;
+$fs-2: 40px;
+$fs-3: 32px;
+$fs-4: 24px;
+$fs-5: 20px;
+$fs-6: 18px;
+$fs-7: 16px;
+$fs-8: 14px;
+$fs-9: 12px; // Smallest found font-size
+// FONT-SIZES
+
+// LETTER-SPACING
+$ls-1: -0.02em; // Found in h-1 heading mixin
+$ls-2: 0em; // Default value
+$ls-3: 0.1px;
+// LETTER-SPACING
+
+// LINE-HEIGHT
+$lh-1: 104%; // Found in h-1 heading mixin
+$lh-2: 110%; // Found in h-2 heading mixin
+$lh-3: 120%; // Found in h-3 to h-5 mixins
+$lh-4: 140%; // Found in h-6 and smaller text styles
+$lh-5: 150%; // Found in most body text styles
+// LINE-HEIGHT

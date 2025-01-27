@@ -1,0 +1,245 @@
+@use "./mixins.scss";
+@use "./constants.scss";
+
+.ds-button {
+  border: none;
+  text-decoration: none;
+}
+
+.ds-avatar {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
+
+.ds-checkbox {
+  width: max-content;
+  height: max-content;
+  -webkit-height: max-content;
+
+  & &-image {
+    aspect-ratio: 1/1;
+  }
+}
+
+.ds-spinner {
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  aspect-ratio: 1/1;
+  animation: spin 2s linear infinite;
+}
+
+.ds-dropdown {
+  position: relative;
+  height: auto;
+
+  .ds-dropdown-button {
+    cursor: pointer;
+  }
+
+  .ds-dropdown-list {
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+
+    &.list-roundness {
+    }
+    &.list-x {
+      width: max-content;
+      right: 0%;
+    }
+    &.list-y {
+      height: max-content;
+      -webkit-height: max-content;
+      top: calc(100% + 8px);
+    }
+    &.list-bg {
+      background-color: #ffffff;
+    }
+    &.list-shadow {
+      // box-shadow: $bs-6;
+    }
+    &.list-padding {
+      // padding: $size-2;
+    }
+
+    &.open {
+      opacity: 1;
+    }
+  }
+}
+
+.ds-ping {
+  --pulse-color: transparent;
+  @keyframes pulse {
+    0% {
+      transform: scale(0.99);
+      box-shadow: 0 0 0px 0 var(--pulse-color);
+    }
+    30% {
+      transform: scale(1);
+      box-shadow: 0 0 30px 20px rgba(231, 165, 37, 0);
+    }
+    31% {
+      box-shadow: 0 0 0px 0px rgba(231, 165, 37, 0);
+    }
+    100% {
+      transform: scale(0.99);
+      box-shadow: 0 0 0px 0 rgba(231, 165, 37, 0);
+    }
+  }
+
+  &-animate {
+    animation: pulse 2s linear infinite;
+  }
+
+  width: max-content;
+  height: max-content;
+  -webkit-height: max-content;
+}
+
+.ds-input {
+}
+
+.ds-badge-container {
+  position: relative;
+  display: inline-block;
+
+  .ds-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+  }
+}
+
+.ds-list {
+  list-style: none;
+
+  .ds-list-item {
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &.new {
+      background-color: #e6f4ff;
+    }
+
+    &:hover {
+      background-color: #f5f5f5;
+    }
+  }
+}
+
+.ds-tooltip-wrapper {
+  $bgColor: #464646;
+  $dimension: 10px;
+  position: relative;
+  width: 100%;
+
+  .ds-tooltip {
+    position: absolute;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    background-color: $bgColor;
+    opacity: 0.85;
+    font-size: 12px;
+    width: 100%;
+    color: #fff;
+    z-index: 999;
+
+    &-top {
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-0.5rem);
+    }
+
+    &-right {
+      top: 50%;
+      left: 100%;
+      transform: translateX(0.5rem) translateY(-50%);
+    }
+
+    &-bottom {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(0.5rem);
+    }
+
+    &-left {
+      top: 50%;
+      right: 100%;
+      transform: translateX(-0.5rem) translateY(-50%);
+    }
+
+    .ds-tooltip-children {
+    }
+
+    .ds-tooltip-triangle {
+      width: $dimension;
+      height: $dimension;
+      background-color: $bgColor;
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      transform: translate(-50%, 50%) rotate(45deg);
+    }
+  }
+}
+
+.ds-skeleton {
+  @keyframes skeleton {
+    0% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 0 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @mixin ds-animation {
+    background: linear-gradient(90deg, #f2f2f2 0px, #dbdbdb 50%, #f2f2f2 100%);
+    animation: skeleton 3s ease-in-out infinite;
+    background-size: 200% 100%;
+    border-radius: 2px;
+  }
+
+  display: inline-block;
+
+  &-animation {
+    @include ds-animation;
+  }
+
+  &-avatar {
+    @include ds-animation;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin: auto;
+  }
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+
+    .text-line {
+      @include ds-animation;
+    }
+  }
+}

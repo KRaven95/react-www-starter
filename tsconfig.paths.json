@@ -5,38 +5,26 @@
       "@app/*": [
         "./src/app/*"
       ],
-      "@api/*": [
-        "./src/api/*"
+      "@library/*": [
+        "./src/library/*"
       ],
-      "@components/*": [
-        "./src/components/*"
+      "@contracts/*": [
+        "./src/contracts/*"
       ],
-      "@constants/*": [
-        "./src/constants/*"
-      ],
-      "@contexts/*": [
-        "./src/contexts/*"
-      ],
-      "@guards/*": [
-        "./src/guards/*"
+      "@config/*": [
+        "./src/config/*"
       ],
       "@hooks/*": [
-        "./src/hooks/*"
+        "./src/library/frontend/hooks/*"
       ],
       "@scss/*": [
-        "./src/scss/*"
-      ],
-      "@tests/*": [
-        "./src/tests/*"
+        "./src/library/frontend/scss/*"
       ],
       "@translations/*": [
         "./src/translations/*"
       ],
-      "@utils/*": [
-        "./src/utils/*"
-      ],
       "@design-system/*": [
-        "./src/design-system/*"
+        "./src/library/frontend/design-system/*"
       ],
       "@images/*": [
         "./public/images/*"
@@ -44,11 +32,8 @@
       "@downloads/*": [
         "./public/downloads/*"
       ],
-      "@assets/*": [
-        "./public/assets/*"
-      ],
-      "@pdfs/*": [
-        "./public/pdfs/*"
+      "@font/*": [
+        "./public/fonts/*"
       ],
       "@locales/*": [
         "./public/locales/*"

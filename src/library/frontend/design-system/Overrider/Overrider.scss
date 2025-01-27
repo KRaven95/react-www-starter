@@ -1,0 +1,25 @@
+@use "@scss/global.scss" as *;
+
+.overrider {
+  position: relative;
+
+  @include keyframes(slide-in-right) {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 0%;
+    }
+  }
+
+  .override-with {
+    $timing: var(--override-timing);
+    position: absolute;
+    top: 0px;
+
+    will-change: left;
+
+    animation: slide-in-right $timing forwards ease-out;
+    animation-iteration-count: 1;
+  }
+}

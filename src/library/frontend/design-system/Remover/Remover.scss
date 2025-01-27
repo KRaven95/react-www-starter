@@ -1,0 +1,46 @@
+@use "@scss/global.scss" as *;
+
+.remover {
+  $timing: var(--timing);
+
+  position: relative;
+  // border: 1px solid red;
+
+  @include keyframes(collapse) {
+    0% {
+      max-height: 500px;
+      overflow: hidden;
+    }
+    100% {
+      max-height: 0px;
+      overflow: hidden;
+    }
+  }
+
+  @include keyframes(slide-out-right) {
+    0% {
+      left: 0%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  animation-name: collapse;
+  animation-duration: $timing;
+  animation-delay: $timing;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+
+  .to-remove {
+    position: relative;
+    top: 0px;
+
+    animation-name: slide-out-right;
+    animation-duration: $timing;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+  }
+}

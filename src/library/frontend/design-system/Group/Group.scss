@@ -1,0 +1,22 @@
+@use "@scss/global.scss" as *;
+@use "@scss/variables.scss" as *;
+
+.group {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  @include height-max-content;
+
+  &.full-size {
+    height: 100%;
+    width: 100%;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.full-height {
+    height: 100%;
+  }
+}

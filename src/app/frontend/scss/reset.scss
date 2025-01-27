@@ -1,0 +1,102 @@
+@use "@app-scss/global.scss" as *;
+
+* {
+}
+
+* {
+  margin: 0px;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  padding: 0px;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  touch-action: manipulation;
+  -ms-touch-action: manipulation;
+
+  font-size: 16px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  // scroll-behavior: smooth;
+  color: $black;
+  // overscroll-behavior: contain;
+}
+
+body {
+  position: relative;
+  overflow: hidden;
+}
+
+button,
+a {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+img,
+a {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+svg {
+  display: block;
+}
+
+section {
+  @include height-max-content;
+  width: 100%;
+}
+
+body,
+#root {
+  height: inherit;
+}
+
+hr {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  color: unset;
+  text-decoration: none;
+
+  > * {
+    height: 100%;
+  }
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:disabled {
+    pointer-events: none;
+  }
+}
+
+input {
+  border: none;
+}

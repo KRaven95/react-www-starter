@@ -1,24 +1,26 @@
 import { Outlet } from "react-router";
 
-import { paths } from "./paths";
+import { paths } from "./frontend/routing/paths";
 
-import Main from "./Main/Main";
-import Dashboard from "./Dashboard/Dashboard";
-
-import "@scss/utils.scss";
-import "@scss/base.scss";
-import "@scss/lib.scss";
-import "@scss/variables.scss";
-import "@scss/mixins.scss";
+import "@scss/root.scss";
 import "@scss/grid.scss";
+import "@scss/utils.scss";
 import "@scss/responsive.scss";
+import "@scss/typography.scss";
+import "@scss/layers.scss";
+import "@scss/design-system.scss";
+import "@scss/reset.scss";
 
 const App = () => {
-  return <Outlet />;
+  return (
+    <>
+      <Outlet />
+    </>
+  );
 };
 
 export default {
-  path: paths.main,
+  path: paths.app,
   element: <App />,
-  children: [Main, Dashboard]
+  children: []
 };

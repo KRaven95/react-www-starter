@@ -1,0 +1,17 @@
+@use "@scss/global.scss" as *;
+
+.progress-bar {
+  &.track {
+    height: 4px;
+    width: 100%;
+
+    background: var(--primary-600);
+  }
+
+  .bar {
+    -webkit-transition: width 1s linear;
+    transition: width 1s linear;
+    height: 100%;
+    background: var(--success);
+  }
+}

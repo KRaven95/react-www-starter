@@ -1,0 +1,36 @@
+@use "@scss/global.scss" as *;
+
+@include keyframes(appear) {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@include keyframes(disappear) {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.show-smooth {
+  position: relative;
+  $timing: var(--timingS);
+  width: max-content;
+  height: 100%;
+
+  &.animate-entering {
+    animation: appear $timing forwards ease-out;
+  }
+  &.static {
+    animation: none;
+    opacity: 1;
+  }
+  &.animate-leaving {
+    animation: disappear $timing forwards ease-out;
+  }
+}

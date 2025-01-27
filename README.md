@@ -49,15 +49,7 @@ yarn start:dev
 - `build:ci` – bundles using external enviroments
 - `architecture` – builds dependency graph of whole app
 
-### Other scripts
-
-- `test` – run tests
-- `storybook` – starts storybook dev server
-- `storybook:build` – build production storybook bundle to `storybook-static`
-
 ## Environment variables
 
-| Name                 | Description                            | Type    |
-| -------------------- | -------------------------------------- | ------- |
-| REACT_APP_STAGE      | Application mode. Example: dev or prod | string  |
-| REACT_APP_DEBUG_MODE | Flag to enable debug mode              | boolean |
+| Name | Description | Type |
+| ---- | ----------- | ---- |

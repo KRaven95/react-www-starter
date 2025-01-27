@@ -1,0 +1,10 @@
+$navbar-height-desktop: 68px;
+$navbar-height-mobile: 60px;
+
+$base-side-padding: 40px;
+$base-side-padding-mobile: 12px;
+
+$base-max-content-width: 1200px;
+
+$max-content-width: calc($base-max-content-width + 2 * $base-side-padding);
+$max-content-width-xxl: calc(1920px + 2 * $base-side-padding);

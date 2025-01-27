@@ -1,4 +1,5 @@
 const { CracoAliasPlugin } = require("react-app-alias");
+const path = require("path");
 
 const options = {};
 
@@ -25,6 +26,11 @@ module.exports = {
           }
         }
       }
+    }
+  },
+  resolve: {
+    alias: {
+      "@images": path.resolve(__dirname, "public/images/")
     }
   }
 };

@@ -1,0 +1,49 @@
+@use "@scss/global.scss" as *;
+
+.drawer {
+  position: absolute;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  max-height: 100vh;
+  // width: 100%;
+  height: 100%;
+
+  -webkit-transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  will-change: transform, box-shadow;
+
+  &.right {
+    right: 0px;
+    top: 0px;
+    &.shown {
+      -webkit-transform: translate3d(0%, 0, 0);
+      transform: translate3d(0%, 0, 0);
+    }
+    &.hidden {
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
+    }
+  }
+
+  &.left {
+    left: 0px;
+    top: 0px;
+    &.show {
+      -webkit-transform: translate3d(0%, 0, 0);
+      transform: translate3d(0%, 0, 0);
+    }
+    &.hidden {
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+}
